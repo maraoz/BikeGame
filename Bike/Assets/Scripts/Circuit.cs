@@ -9,7 +9,7 @@ public class Circuit : MonoBehaviour {
 
     public void set_distance(int meters) {
         length = meters;
-        Vector3 finishPosition = transform.position + transform.forward * meters + Vector3.up * 3;
+        Vector3 finishPosition = transform.position + transform.forward * meters + Vector3.up * 1.5f;
         GameObject.Instantiate(finishLine, finishPosition, Quaternion.identity);
     }
 
