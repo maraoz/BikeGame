@@ -11,7 +11,7 @@ public class WebSimulator : MonoBehaviour {
             return;
         }
 
-        FakeExternal.Call("my_circuit", "set_distance", 100);
+        FakeExternal.Call("my_circuit", "set_distance", 500);
     }
 
     void OnGUI() {
