@@ -1,28 +1,97 @@
 using UnityEngine;
 using System.Collections;
 
-public class Participant : MonoBehaviour {
+public class Participant : PersistentSingleton {
 
     public Circuit circuit;
 
-    private float totalMeters;
+    public Vector3[] waypoints;
+    public float waypointRadius = 1.5f;
+    public float damping = 0.1f;
+    public float dt = 0.1f;
 
-    void Awake() {
-        totalMeters = 0f;
+    private float totalMeters;
+    private float plannedDistance;
+    private float speed = 2.0f;
+    private Vector3 currentHeading, targetHeading;
+    private int currentIndex;
+
+
+    internal override void Awake() {
+        base.Awake();
+        enabled = false;
+        totalMeters = 0;
+        plannedDistance = 0;
+        currentHeading = transform.forward;
+        currentIndex = 0;
     }
+
+    internal void StartWaypoints(int size) {
+        waypoints = new Vector3[size];
+    }
+
+    internal void AddWaypoint(Vector3 pos, int index) {
+        waypoints[index] = pos;
+    }
+
+    internal void EndWaypoints() {
+        enabled = true;
+    }
+
+
+
+
+
+
 
     public void take_step(float distance) {
-        totalMeters += distance;
-        this.Move(transform.forward * distance);
-
-        if (totalMeters >= circuit.GetLength()) {
-            Application.ExternalCall("receive_finish_from_unity");
-        }
-
+        plannedDistance = distance;
+        speed = distance * dt;
     }
 
-    private void Move(Vector3 motion) {
-        transform.position += motion;
+    protected void FixedUpdate() {
+        targetHeading = waypoints[currentIndex] - transform.position;
+        currentHeading = Vector3.Lerp(currentHeading, targetHeading, damping);
+    }
+
+    protected void Update() {
+        if (plannedDistance < 0.1) {
+            return;
+        }
+        Vector3 moveDelta = currentHeading.normalized * Time.deltaTime * speed;
+        if (moveDelta.magnitude > plannedDistance) {
+            moveDelta = moveDelta.normalized * plannedDistance;
+        }
+        totalMeters += moveDelta.magnitude;
+        if (totalMeters >= circuit.GetLength()) {
+            Application.ExternalCall("receive_finish_from_unity");
+            enabled = false;
+        }
+        plannedDistance -= moveDelta.magnitude;
+
+        transform.position += moveDelta;
+        transform.LookAt(transform.position + currentHeading);
+
+        if (Vector3.Distance(transform.position, waypoints[currentIndex]) <= waypointRadius) {
+            currentIndex++;
+            if (currentIndex >= waypoints.Length) {
+                currentIndex = 0;
+            }
+        }
+    }
+
+    // draws red line from waypoint to waypoint
+    public void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        if (waypoints == null)
+            return;
+        for (int i = 0; i < waypoints.Length; i++) {
+            Vector3 pos = waypoints[i];
+            if (i > 0) {
+                Vector3 prev = waypoints[i - 1];
+                Gizmos.DrawLine(prev, pos);
+            }
+        }
     }
 
 }
