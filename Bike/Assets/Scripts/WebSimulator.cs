@@ -4,14 +4,16 @@ using System.Collections;
 public class WebSimulator : MonoBehaviour {
 
     void Start() {
-        if (Application.platform == RuntimePlatform.WindowsWebPlayer ||
-            Application.platform == RuntimePlatform.OSXWebPlayer) {
-
+        if (IsSimulated()) {
             enabled = false;
             return;
         }
-
         FakeExternal.Call("my_circuit", "set_distance", 500);
+    }
+
+    public static bool IsSimulated() {
+        return (Application.platform == RuntimePlatform.OSXEditor || 
+            Application.platform == RuntimePlatform.WindowsEditor);
     }
 
     void OnGUI() {

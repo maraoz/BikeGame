@@ -44,10 +44,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Road and Path Tool\Editor\AttachedPathEditor.cs" />
-     <Compile Include="Assets\Road and Path Tool\Editor\PathEditor.cs" />
-     <None Include="Assets\Road and Path Tool\tutorial.txt" />
-     <None Include="Assets\Road and Path Tool\Shader\Diffuse_RoadOffset.shader" />
+     <Compile Include="Assets\Editor\VelodromeCreatorEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
