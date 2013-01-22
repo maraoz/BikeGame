@@ -70,6 +70,17 @@ public class Circuit : PersistentSingleton {
                 participant.AddWaypoint(waypoints[i].transform.position, i);
             }
             participant.EndWaypoints();
+        } else if (Application.loadedLevelName.Contains("Level")) {
+            WaypointProvider wp = GameObject.FindObjectOfType(typeof(WaypointProvider)) as WaypointProvider;
+            participant.transform.position = wp.transform.position;
+            wp.CollectWaypoints();
+            length = wp.GetLength();
+            participant.StartWaypoints(wp.waypoints.Length);
+            for (int i = 0; i < wp.waypoints.Length; i++) {
+                participant.AddWaypoint(wp.waypoints[i].position, i);
+            }
+            participant.EndWaypoints();
+
         }
 
     }

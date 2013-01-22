@@ -4,7 +4,7 @@ using System.Collections;
 public class TerrainHelper {
 
 
-    private static Vector2 GetTerrainPosition(Vector3 worldPos) {
+    public static Vector2 GetTerrainPosition(Vector3 worldPos) {
         Terrain terrain = Terrain.activeTerrain;
         TerrainData terrainData = terrain.terrainData;
         Vector3 terrainPos = terrain.transform.position;
