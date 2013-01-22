@@ -48,6 +48,7 @@
      <Compile Include="Assets\Scripts\FakeExternal.cs" />
      <Compile Include="Assets\Scripts\Participant.cs" />
      <Compile Include="Assets\Scripts\PersistentSingleton.cs" />
+     <Compile Include="Assets\Scripts\TerrainHelper.cs" />
      <Compile Include="Assets\Scripts\VelodromeCreator.cs" />
      <Compile Include="Assets\Scripts\WebSimulator.cs" />
   </ItemGroup>

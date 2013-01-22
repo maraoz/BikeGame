@@ -13,7 +13,7 @@ public class WebSimulator : PersistentSingleton {
     }
 
     void Start() {
-        FakeExternal.Call("my_circuit", "set_laps", 10);
+        FakeExternal.Call("my_circuit", "set_laps", 2);
     }
 
     public static bool IsSimulated() {

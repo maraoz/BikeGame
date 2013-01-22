@@ -6,6 +6,7 @@ public class Circuit : PersistentSingleton {
     public GameObject finishLine;
     public GameObject midTerrain;
 
+    private int laps;
     private float length;
     private Participant participant;
 
@@ -41,6 +42,7 @@ public class Circuit : PersistentSingleton {
 
     // laps
     public void set_laps(int n) {
+        laps = n;
         Application.LoadLevel("Velodrome");
     }
 
@@ -48,9 +50,14 @@ public class Circuit : PersistentSingleton {
         if (Application.loadedLevelName == "Velodrome") {
 
             VelodromeCreator vc = GameObject.FindObjectOfType(typeof(VelodromeCreator)) as VelodromeCreator;
+            if (vc.GetWaypoints().Length == 0) {
+                vc.DoCreate();
+            }
+
+            GameObject.Instantiate(finishLine, vc.transform.position + Vector3.up * 1.5f, Quaternion.identity);
 
             participant.transform.position = vc.transform.position;
-            length = vc.fullDistance;
+            length = vc.fullDistance * laps;
 
             GameObject[] waypoints = vc.GetWaypoints();
             participant.StartWaypoints(waypoints.Length);

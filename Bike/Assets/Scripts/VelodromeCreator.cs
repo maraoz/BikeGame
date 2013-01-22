@@ -8,6 +8,7 @@ public class VelodromeCreator : MonoBehaviour {
     public float straightDistance = 150f;
     public int curveResolution = 30;
     public int straightResolution = 5;
+    public int terrainPaintSize = 10;
 
     public GameObject[] created;
     private int current = 0;
@@ -39,7 +40,7 @@ public class VelodromeCreator : MonoBehaviour {
             float y = 0;
             CreateWaypoint(transform.position + transform.forward * (straightDistance / 2) + -transform.right * radius + new Vector3(x, y, z));
         }
-        // seconds straight
+        // second straight
         for (int i = straightResolution; i > 0; i--) {
             float d = (i + 1) * (straightDistance / 2) / (straightResolution + 1);
             CreateWaypoint(transform.position + transform.forward * d - transform.right * 2 * radius);
@@ -57,7 +58,16 @@ public class VelodromeCreator : MonoBehaviour {
 
     void CreateWaypoint(Vector3 position) {
         created[current] = Instantiate(waypoint, position, Quaternion.identity) as GameObject;
+        TerrainHelper.SetTexture(position, 0, terrainPaintSize);
         current += 1;
     }
 
+
+
+    public void DoDestroy() {
+        foreach (GameObject wp in GameObject.FindGameObjectsWithTag("Waypoint")) {
+            TerrainHelper.SetTexture(wp.transform.position, 1, terrainPaintSize);
+            DestroyImmediate(wp);
+        }
+    }
 }

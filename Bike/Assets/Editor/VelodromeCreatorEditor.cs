@@ -11,9 +11,8 @@ class VelodromeCreatorEditor : Editor {
             t.DoCreate();
         }
         if (GUILayout.Button("Destroy")) {
-            foreach (GameObject wp in GameObject.FindGameObjectsWithTag("Waypoint")) {
-                DestroyImmediate(wp);
-            }
+            VelodromeCreator t = target as VelodromeCreator;
+            t.DoDestroy();
         }
     }
 }
