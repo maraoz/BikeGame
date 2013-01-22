@@ -44,11 +44,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
-     <None Include="Assets\Viking Demo\Shaders\NewShader.shader" />
-     <None Include="Assets\Road and Path Tool\tutorial.txt" />
-     <None Include="Assets\Viking Demo\READ ME FIRST.txt" />
-     <None Include="Assets\Road and Path Tool\Shader\Diffuse_RoadOffset.shader" />
+     <Compile Include="Assets\Standard Assets\Water (Basic)\Sources\Scripts\WaterSimple.cs" />
+     <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

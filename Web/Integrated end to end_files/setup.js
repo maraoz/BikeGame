@@ -100,11 +100,7 @@ function end_phase_1(){
 	}
 	else if (circuit_type == "named"){
 		circuit_name = document.getElementById("circuit_name").value;
-
-		// TO_DO remove next line when named circuit works properly
-		circuit_distance = 3000;
-		// TO_DO uncomment following line once web Unity3D file is available
-		// unity.SendMessage("my_circuit", "set_name", circuit_name);
+		GetUnity().SendMessage("my_circuit", "set_name", circuit_name);
 		// TO_DO remove next line when named circuit works properly
 		// unity.SendMessage("my_circuit", "set_distance", circuit_distance);
 	}

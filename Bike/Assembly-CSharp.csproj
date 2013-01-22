@@ -51,6 +51,11 @@
      <Compile Include="Assets\Scripts\TerrainHelper.cs" />
      <Compile Include="Assets\Scripts\VelodromeCreator.cs" />
      <Compile Include="Assets\Scripts\WebSimulator.cs" />
+     <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{231D37E2-B82F-1A3C-1DFA-59776F2122CD}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

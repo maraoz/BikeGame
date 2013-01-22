@@ -46,6 +46,11 @@ public class Circuit : PersistentSingleton {
         Application.LoadLevel("Velodrome");
     }
 
+    // name
+    public void set_name(string name) {
+        Application.LoadLevel(name + "Level");
+    }
+
     void OnLevelWasLoaded(int level) {
         if (Application.loadedLevelName == "Velodrome") {
 
