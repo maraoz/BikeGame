@@ -92,9 +92,9 @@ function end_phase_1(){
 		GetUnity().SendMessage("my_circuit", "set_distance", Number(circuit_distance));
 	}
 	else if (circuit_type == "laps"){
-		//circuit_laps = document.getElementById("circuit_laps").value;
+		circuit_laps = document.getElementById("circuit_laps").value;
 
-		GetUnity().SendMessage("my_circuit", "set_laps", 5);
+		GetUnity().SendMessage("my_circuit", "set_laps", Number(circuit_laps));
 		// unity.SendMessage("my_circuit", "set_lap_distance", circuit_lap_length);
 		// unity.SendMessage("my_circuit", "set_distance", circuit_laps * circuit_lap_length);
 	}
