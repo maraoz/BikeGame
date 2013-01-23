@@ -15,6 +15,7 @@ public class Participant : PersistentSingleton {
     private float speed = 2.0f;
     private Vector3 currentHeading, targetHeading;
     private int currentIndex;
+    private float lastStepTime;
 
 
     internal override void Awake() {
@@ -24,6 +25,7 @@ public class Participant : PersistentSingleton {
         plannedDistance = 0;
         currentHeading = transform.forward;
         currentIndex = 0;
+        lastStepTime = 0;
     }
 
     internal void StartWaypoints(int size) {
@@ -43,10 +45,16 @@ public class Participant : PersistentSingleton {
 
 
 
-
+    // externally called
     public void take_step(float distance) {
-        plannedDistance = distance;
-        speed = distance * dt;
+        if (plannedDistance == 0) {
+            lastStepTime = 0;
+        }
+        plannedDistance += distance;
+
+        float currentStepTime = Time.time;
+        speed = (lastStepTime == 0) ? (distance * dt) : distance / (currentStepTime - lastStepTime);
+        lastStepTime = currentStepTime;
     }
 
     protected void FixedUpdate() {
@@ -56,6 +64,7 @@ public class Participant : PersistentSingleton {
 
     protected void Update() {
         if (plannedDistance < 0.1) {
+            plannedDistance = 0;
             return;
         }
         Vector3 moveDelta = currentHeading.normalized * Time.deltaTime * speed;

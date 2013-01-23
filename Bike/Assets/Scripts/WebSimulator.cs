@@ -25,7 +25,7 @@ public class WebSimulator : PersistentSingleton {
 
     void OnGUI() {
         if (GUILayout.Button("step")) {
-            FakeExternal.Call("my_participant", "take_step", 15);
+            FakeExternal.Call("my_participant", "take_step", 2);
         }
     }
 
