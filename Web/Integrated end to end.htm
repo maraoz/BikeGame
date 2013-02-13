@@ -1,150 +1,250 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!-- saved from url=(0057)http://bifrosttechnologies.com/cyclades/merged/index.html -->
-<html xmlns="http://www.w3.org/1999/xhtml" onkeypress="read_keystroke(event)"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Integrated end to end</title>
-		<script type="text/javascript" src="./Integrated end to end_files/UnityObject.js"></script>
-		<script type="text/javascript" src="./Integrated end to end_files/init.js"></script>
-		<script type="text/javascript" src="./Integrated end to end_files/setup.js"></script>
-		<script type="text/javascript" src="./Integrated end to end_files/gateway.js"></script>
-		<script type="text/javascript" src="./Integrated end to end_files/usb.js"></script>
-		<link rel="stylesheet" type="text/css" href="./Integrated end to end_files/test.css">
-		<link rel="stylesheet" type="text/css" href="./Integrated end to end_files/standard.css">
-	</head>
+<html xmlns="http://www.w3.org/1999/xhtml" onkeypress="read_keystroke(event)">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Integrated end to end</title>
+    <script type="text/javascript" src="./Integrated end to end_files/UnityObject.js"></script>
+    <script type="text/javascript" src="./Integrated end to end_files/init.js"></script>
+    <script type="text/javascript" src="./Integrated end to end_files/setup.js"></script>
+    <script type="text/javascript" src="./Integrated end to end_files/gateway.js"></script>
+    <script type="text/javascript" src="./Integrated end to end_files/usb.js"></script>
+    <link rel="stylesheet" type="text/css" href="./Integrated end to end_files/test.css">
+    <link rel="stylesheet" type="text/css" href="./Integrated end to end_files/standard.css">
+</head>
 <body>
-<div class="all">
-	<div name="panel_top" class="panel_top">
-		<div name="top_logo" class="top_logo">logo</div>
-		<div name="top_banner" class="top_banner">banner</div>
-		<div name="top_session" class="top_session">
-								var user_heart_rate_max;
+    <div class="all">
+        <div name="panel_top" class="panel_top">
+            <div name="top_logo" class="top_logo">logo</div>
+            <div name="top_banner" class="top_banner">banner</div>
+            <div name="top_session" class="top_session">
+                var user_heart_rate_max;
 								var user_heart_rate_high;
 								var user_heart_rate_low;
-		</div>  <!-- end top_session div -->
-	</div>
-	<div name="menu" class="menu">
-		<a href="http://bifrosttechnologies.com/cyclades/merged/city.htm">City</a>
-		<a href="http://bifrosttechnologies.com/cyclades/merged/dungeon.htm">Dungeon</a>
-		<a href="http://bifrosttechnologies.com/cyclades/merged/diplomacy.htm">Diplomacy</a>
-		<a href="http://bifrosttechnologies.com/cyclades/merged/minions.htm">Minions</a>
-	</div>
-	<div name="panel_bottom" class="panel_bottom">
-		<div name="bottom_left" class="bottom_left">This is left panel</div>
-		<div name="bottom_content" class="bottom_content">
-			<div id="phase_1">
-				<form id="form_phase_1" method="get" action="">
-					<h2>This is the first phase: Set up</h2>
-					<div id="participant">
-						<b>Participant</b><br>
-						pk_participant <input id="participant_pk" type="text" disabled="" style="background:#ddd"><br><br>
-						Name <input id="participant_name" type="text" value="Bob"><br><br>
+            </div>
+            <!-- end top_session div -->
+        </div>
+        <div name="menu" class="menu">
+            <a href="http://bifrosttechnologies.com/cyclades/merged/city.htm">City</a>
+            <a href="http://bifrosttechnologies.com/cyclades/merged/dungeon.htm">Dungeon</a>
+            <a href="http://bifrosttechnologies.com/cyclades/merged/diplomacy.htm">Diplomacy</a>
+            <a href="http://bifrosttechnologies.com/cyclades/merged/minions.htm">Minions</a>
+        </div>
+        <div name="panel_bottom" class="panel_bottom">
+            <div name="bottom_left" class="bottom_left">This is left panel</div>
+            <div name="bottom_content" class="bottom_content">
+                <div id="phase_1">
+                    <form id="form_phase_1" method="get" action="">
+                        <h2>This is the first phase: Set up</h2>
+                        <div id="participant">
+                            <b>Participant</b><br>
+                            pk_participant
+                            <input id="participant_pk" type="text" disabled="" style="background: #ddd"><br>
+                            <br>
+                            Name
+                            <input id="participant_name" type="text" value="Bob"><br>
+                            <br>
+                            Picture
+                            <img src="./Integrated end to end_files/web_small.jpg" width="84" height="102"><br>
+                            or upload a new picture
+                            <input id="user_photo" type="file"><br>
+                            <br>
+                            Bike
+                            <img src="./Integrated end to end_files/bike.jpg" width="144" height="88"><br>
+                            or upload a new picture
+                            <input id="user_photo_bike" type="file"><br>
+                            <br>
+                            Tell us a bit about yourself and your cycling interests:<br>
+                            <textarea id="user_user_description" rows="5" cols="80"></textarea><br>
+                            <br>
+                            Tell us a bit about your bike, why you chose it, what you changed, next steps...:<br>
+                            <textarea id="user_bike_description" rows="5" cols="80"></textarea><br>
+                            <br>
+                            Where are you originally from?
+                            <select id="user_country_from_iso_2">
+                                <option value="es">es</option>
+                                <option value="uk">uk</option>
+                                <option value="za">za</option>
+                                <option value="us">us</option>
+                                <option value="ca">ca</option>
+                            </select><br>
+                            <br>
+                            Where do you live/cycle at the moment?
+                            <select id="user_country_live_iso_2">
+                                <option value="es">es</option>
+                                <option value="uk" selected="">uk</option>
+                                <option value="za">za</option>
+                                <option value="us">us</option>
+                                <option value="ca">ca</option>
+                            </select><br>
+                            <br>
+                            Your Facebook page
+                            <input id="user_url_facebook" type="text" value="http://www.facebook.com/aitor.elfau" size="60">
+                            <a href="http://www.facebook.com/aitor.elfau">test</a><br>
+                            <br>
+                            Your web page
+                            <input id="user_url_homepage" type="text" value="http://aitor.elfau.net" size="60">
+                            <a href="http://aitor.elfau.net/">test</a><br>
+                            <br>
+                            Your cycling club's page
+                            <input id="user_url_club" type="text" value="http://www.tygerbergmtb.co.za/" size="60">
+                            <a href="http://www.tygerbergmtb.co.za/">test</a><br>
+                            <br>
+                            Gender
+                            <select id="user_gender">
+                                <option value="male">male</option>
+                                <option value="female">female</option>
+                            </select><br>
+                            <br>
+                            Birth date
+                            <input id="user_birthdate_day" type="text" size="2" value="30">/<select id="user_birthdate_month"><option value="january">january</option>
+                                <option value="february">february</option>
+                                <option value="march">march</option>
+                                <option value="april">april</option>
+                                <option value="may">may</option>
+                                <option value="june">june</option>
+                                <option value="july">july</option>
+                                <option value="august" selected="">august</option>
+                                <option value="september">september</option>
+                                <option value="october">october</option>
+                                <option value="november">november</option>
+                                <option value="december">december</option>
+                            </select>/<input id="user_birthdate_year" type="text" size="4" value="1977"><br>
+                            <br>
+                            Weight
+                            <input id="user_weight" type="text" value="100" size="5">
+                            <select id="user_weight_unit">
+                                <option value="kg">kg</option>
+                                <option value="pounds">pounds</option>
+                                <option value="stones">stones</option>
+                            </select><br>
+                            <br>
+                            Height
+                            <input id="user_height" type="text" value="1.73" size="5">
+                            <select id="user_height_unit">
+                                <option value="m">m</option>
+                                <option value="cm">cm</option>
+                                <option value="inches">inches</option>
+                            </select><br>
+                            <br>
+                            Privacy level<br>
+                            <input id="user_privacy" name="user_privacy" type="radio" value="off" checked="true">
+                            off: your information, except your date of birth, is viewable by other users. (recommended)<br>
+                            <input id="Radio1" name="user_privacy" type="radio" value="bio">
+                            bio: your biological information (height, weight, etc), except gender, is private.<br>
+                            <input id="Radio2" name="user_privacy" type="radio" value="on">
+                            on:  only your identifier is public. This dramatically limits your social interaction.<br>
+                            <br>
 
-						Picture <img src="./Integrated end to end_files/web_small.jpg" width="84" height="102"><br>
-						or upload a new picture <input id="user_photo" type="file"><br><br>
+                            <input id="button_participant_to_bike" type="button" value="done" onclick="participant_done()">
+                        </div>
+                        <!-- end participant div -->
+                        <div id="bike" style="display: none">
+                            Wheel circumference
+                            <input id="participant_step" type="text" value="2.000">
+                            meters (must be &gt;0)<br>
+                            <input id="button_bike_to_circuit" type="button" value="done" onclick="bike_done()">
+                        </div>
+                        <!-- end bike div -->
+                        <div id="circuit" style="display: none">
+                            <br>
+                            <b>Circuit</b><br>
+                            Circuit type
+                            <select id="circuit_type" onchange="circuit_type_changed(this.value)">
+                                <option value="none"></option>
+                                <option value="distance">distance</option>
+                                <option value="laps">laps</option>
+                                <option value="named">named</option>
+                            </select>
+                            <div id="distance" style="display: none">
+                                How long do you want to make the race?
+                                <input id="circuit_distance" type="text" value="100">
+                                meters
+                            </div>
+                            <!-- end distance div -->
+                            <div id="laps" style="display: none">
+                                How many laps?
+                                <input id="circuit_laps" type="text" value="2">
+                                laps<br>
+                                Length of laps?
+                                <input id="circuit_lap_length" type="text" value="250" disabled="" style="background: #ddd">
+                                meters<br>
+                            </div>
+                            <!-- end laps div -->
+                            <div id="named" style="display: none">
+                                Circuit name 
+                                <select id="circuit_name">
+                                    <option value="Test">Test</option>
+                                    <option value="Belville">Belville</option>
+                                </select>
+                            </div>
+                            <!-- end named div -->
+                            <input id="button_end_phase_1" type="button" value="done" onclick="end_phase_1()" style="display: none">
+                        </div>
+                        <!-- end circuit div -->
+                    </form>
+                    <!-- end phase_1 form -->
+                </div>
+                <!-- end phase_1 div -->
+                <div id="phase_2">
+                    <form name="test_form" id="input_detection">
+                        <h2>This is the second phase: race</h2>
+                        <input id="button_step" type="button" value="step" onclick="advance()"><br>
+                        <input id="button_pause" type="button" value="pause" onclick="pause()"><br>
+                        <div id="unityPlayer">
+                            <div class="missing">
+                                <a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
+                                    <img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
+                                </a>
+                            </div>
+                            <!-- end missing div -->
+                        </div>
+                        <!-- end unityPlayer div -->
+                        <div id="usb">
+                            <table>
 
-						Bike <img src="./Integrated end to end_files/bike.jpg" width="144" height="88"><br>
-						or upload a new picture <input id="user_photo_bike" type="file"><br><br>
+                                <tbody>
+                                    <tr>
+                                        <td><b>Inputs</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>X</td>
+                                        <td>
+                                            <input name="button_x" type="text" value="c"></td>
+                                        <td>
+                                            <input name="button_x_counter" type="text" value="0"></td>
+                                        <td>
+                                            <img id="image_button_x" src="./Integrated end to end_files/check.jpg" hidden="hidden"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Y</td>
+                                        <td>
+                                            <input name="button_y" type="text" value="y"></td>
+                                        <td>
+                                            <input name="button_y_counter" type="text" value="0"></td>
+                                        <td>
+                                            <img id="image_button_y" src="./Integrated end to end_files/check.jpg" hidden="hidden"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b></b></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- end usb div -->
+                    </form>
+                    <!-- end phase_2 form -->
+                </div>
+                <!-- end phase_2 div -->
+                <div id="phase_3" style="display: none">
+                    <h2>This is the third phase: post race</h2>
+                </div>
+                <!-- end phase_3 div -->
+            </div>
+            <!-- end bottom_content div -->
+            <div name="panel_footer" class="panel_footer">This is the footer</div>
+        </div>
 
-						Tell us a bit about yourself and your cycling interests:<br>
-						<textarea id="user_user_description" rows="5" cols="80"></textarea><br><br>
-
-						Tell us a bit about your bike, why you chose it, what you changed, next steps...:<br>
-						<textarea id="user_bike_description" rows="5" cols="80"></textarea><br><br>
-
-						Where are you originally from? <select id="user_country_from_iso_2"><option value="es">es</option><option value="uk">uk</option><option value="za">za</option><option value="us">us</option><option value="ca">ca</option></select><br><br>
-						Where do you live/cycle at the moment? <select id="user_country_live_iso_2"><option value="es">es</option><option value="uk" selected="">uk</option><option value="za">za</option><option value="us">us</option><option value="ca">ca</option></select><br><br>
-
-						Your Facebook page <input id="user_url_facebook" type="text" value="http://www.facebook.com/aitor.elfau" size="60"> <a href="http://www.facebook.com/aitor.elfau">test</a><br><br>
-
-						Your web page <input id="user_url_homepage" type="text" value="http://aitor.elfau.net" size="60"> <a href="http://aitor.elfau.net/">test</a><br><br>
-
-						Your cycling club's page <input id="user_url_club" type="text" value="http://www.tygerbergmtb.co.za/" size="60"> <a href="http://www.tygerbergmtb.co.za/">test</a><br><br>
-
-						Gender <select id="user_gender"><option value="male">male</option><option value="female">female</option></select><br><br>
-
-						Birth date <input id="user_birthdate_day" type="text" size="2" value="30">/<select id="user_birthdate_month"><option value="january">january</option><option value="february">february</option><option value="march">march</option><option value="april">april</option><option value="may">may</option><option value="june">june</option><option value="july">july</option><option value="august" selected="">august</option><option value="september">september</option><option value="october">october</option><option value="november">november</option><option value="december">december</option></select>/<input id="user_birthdate_year" type="text" size="4" value="1977"><br><br>
-
-						Weight <input id="user_weight" type="text" value="100" size="5"> <select id="user_weight_unit"><option value="kg">kg</option><option value="pounds">pounds</option><option value="stones">stones</option></select><br><br>
-
-						Height <input id="user_height" type="text" value="1.73" size="5"> <select id="user_height_unit"><option value="m">m</option><option value="cm">cm</option><option value="inches">inches</option></select><br><br>
-
-						Privacy level<br>
-							<input id="user_privacy" name="user_privacy" type="radio" value="off" checked="true"> off: your information, except your date of birth, is viewable by other users. (recommended)<br>
-							<input id="Radio1" name="user_privacy" type="radio" value="bio"> bio: your biological information (height, weight, etc), except gender, is private.<br>
-							<input id="Radio2" name="user_privacy" type="radio" value="on">  on:  only your identifier is public. This dramatically limits your social interaction.<br><br>
-
-						<input id="button_participant_to_bike" type="button" value="done" onclick="participant_done()">
-					</div> <!-- end participant div -->
-					<div id="bike" style="display:none">
-						Wheel circumference <input id="participant_step" type="text" value="2.000"> meters (must be &gt;0)<br>
-						<input id="button_bike_to_circuit" type="button" value="done" onclick="bike_done()">
-					</div> <!-- end bike div -->
-					<div id="circuit" style="display:none">
-						<br><b>Circuit</b><br>
-						Circuit type <select id="circuit_type" onchange="circuit_type_changed(this.value)">
-								<option value="none"></option>
-								<option value="distance">distance</option>
-								<option value="laps">laps</option>
-								<option value="named">named</option>
-							</select>
-						<div id="distance" style="display:none">
-							How long do you want to make the race? <input id="circuit_distance" type="text" value="100"> meters
-						</div> <!-- end distance div -->
-						<div id="laps" style="display:none">
-							How many laps? <input id="circuit_laps" type="text" value="2"> laps<br>
-							Length of laps? <input id="circuit_lap_length" type="text" value="250" disabled="" style="background:#ddd"> meters<br>
-						</div> <!-- end laps div -->
-						<div id="named" style="display:none">
-							Circuit name 	<select id="circuit_name">
-												<option value="Test">Test</option>
-											</select>
-						</div> <!-- end named div -->
-						<input id="button_end_phase_1" type="button" value="done" onclick="end_phase_1()" style="display:none">
-					</div> <!-- end circuit div -->
-				</form> <!-- end phase_1 form -->
-			</div> <!-- end phase_1 div -->
-			<div id="phase_2">
-				<form name="test_form" id="input_detection">
-					<h2>This is the second phase: race</h2>
-					<input id="button_step" type="button" value="step" onclick="advance()"><br>
-					<input id="button_pause" type="button" value="pause" onclick="pause()"><br>
-					<div id="unityPlayer">
-						<div class="missing">
-							<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
-								<img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
-							</a>
-						</div> <!-- end missing div -->
-					</div> <!-- end unityPlayer div -->
-					<div id="usb">
-						<table>
-							
-							<tbody><tr>
-								<td><b>Inputs</b></td>
-							</tr>
-							<tr>
-								<td>X</td>
-								<td><input name="button_x" type="text" value="c"></td>
-								<td><input name="button_x_counter" type="text" value="0"></td>
-								<td><img id="image_button_x" src="./Integrated end to end_files/check.jpg" hidden="hidden"></td>
-							</tr>
-							<tr>
-								<td>Y</td>
-								<td><input name="button_y" type="text" value="y"></td>
-								<td><input name="button_y_counter" type="text" value="0"></td>
-								<td><img id="image_button_y" src="./Integrated end to end_files/check.jpg" hidden="hidden"></td>
-							</tr>
-							<tr>
-								<td><b> </b></td>
-							</tr>
-						</tbody></table>
-					</div> <!-- end usb div -->
-				</form> <!-- end phase_2 form -->
-			</div> <!-- end phase_2 div -->
-			<div id="phase_3" style="display:none">
-				<h2>This is the third phase: post race</h2>
-			</div> <!-- end phase_3 div -->
-	</div> <!-- end bottom_content div -->
-	<div name="panel_footer" class="panel_footer">This is the footer</div>
-</div>
-
-</div></body></html>
+    </div>
+</body>
+</html>

@@ -3,9 +3,10 @@ using System.Collections;
 
 public class WaypointProvider : MonoBehaviour {
     public Transform[] waypoints;
-    public WaypointSource source;
+    private WaypointSource source;
 
     internal void CollectWaypoints() {
+        source = FindObjectOfType(typeof(WaypointSource)) as WaypointSource;
         waypoints = source.GetWaypoints();
 
     }

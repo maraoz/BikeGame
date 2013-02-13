@@ -1,11 +1,6 @@
 using UnityEngine;
 using System.Collections;
 
-public class WaypointSource : MonoBehaviour {
-
-    public Transform[] waypoints;
-
-    internal Transform[] GetWaypoints() {
-        return waypoints;
-    }
+public abstract class WaypointSource : MonoBehaviour {
+    public abstract Transform[] GetWaypoints();
 }

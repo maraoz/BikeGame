@@ -75,6 +75,7 @@ public class Circuit : PersistentSingleton {
             participant.transform.position = wp.transform.position;
             wp.CollectWaypoints();
             length = wp.GetLength();
+            Debug.Log("named circuit has length of "+length+" meters.");
             participant.StartWaypoints(wp.waypoints.Length);
             for (int i = 0; i < wp.waypoints.Length; i++) {
                 participant.AddWaypoint(wp.waypoints[i].position, i);
@@ -82,6 +83,7 @@ public class Circuit : PersistentSingleton {
             participant.EndWaypoints();
 
         }
+        participant.transform.LookAt(participant.GetWaypoints()[1]);
 
     }
 

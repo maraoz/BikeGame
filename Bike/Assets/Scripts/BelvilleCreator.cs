@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [ExecuteInEditMode()]
-public class BelvilleCreator : MonoBehaviour {
+public class BelvilleCreator : WaypointSource {
 
     public GameObject waypoint;
     public float fullDistance = 250f;
@@ -10,17 +10,17 @@ public class BelvilleCreator : MonoBehaviour {
     public int straightResolution = 5;
     public int terrainPaintSize = 10;
 
-    public GameObject[] created;
+    public Transform[] created;
     private int current = 0;
 
 
-    internal GameObject[] GetWaypoints() {
+    override public Transform[] GetWaypoints() {
         return created;
     }
 
     void Start() {
-        DoDestroy();
-        DoCreate();
+        //DoDestroy();
+        //DoCreate();
     }
 
     public void DoCreate() {
@@ -121,15 +121,19 @@ public class BelvilleCreator : MonoBehaviour {
         18.597403,-33.852959,0.000000
         18.597404,-33.852962,0.000000";
         string[] lines = coords.Split('\n');
-        created = new GameObject[lines.Length];
-        
+        created = new Transform[lines.Length];
+        Vector3 first = Vector3.zero;
         foreach (string line in lines) { 
             string[] vec = line.Split(',');
-            float scale = 1000;
+            float scale = 100000;
             float x = scale*float.Parse(vec[0]);
             float y = scale*float.Parse(vec[2]); //swapped on purpose
             float z = scale*float.Parse(vec[1]); //swapped on purpose
-            CreateWaypoint(new Vector3(x, y, z));
+            if (line.Equals(lines[0])) {
+                first = new Vector3(x, y, z);
+            }
+            Vector3 v = new Vector3(x, y, z) - first;
+            CreateWaypoint(v);
         }
 
 
@@ -137,7 +141,7 @@ public class BelvilleCreator : MonoBehaviour {
     }
 
     void CreateWaypoint(Vector3 position) {
-        created[current] = Instantiate(waypoint, position, Quaternion.identity) as GameObject;
+        created[current] = (GameObject.Instantiate(waypoint, position, Quaternion.identity) as GameObject).transform;
         TerrainHelper.SetTexture(position, 0, terrainPaintSize);
         current += 1;
     }
@@ -145,9 +149,11 @@ public class BelvilleCreator : MonoBehaviour {
 
 
     public void DoDestroy() {
+        current = 0;
         foreach (GameObject wp in GameObject.FindGameObjectsWithTag("Waypoint")) {
             TerrainHelper.SetTexture(wp.transform.position, 1, terrainPaintSize);
             DestroyImmediate(wp);
+            
         }
     }
 }

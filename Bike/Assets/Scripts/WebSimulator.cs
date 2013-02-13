@@ -15,7 +15,7 @@ public class WebSimulator : PersistentSingleton {
     void Start() {
         //FakeExternal.Call("my_circuit", "set_distance", 250);
         //FakeExternal.Call("my_circuit", "set_laps", 2);
-        FakeExternal.Call("my_circuit", "set_name", "Test");
+        FakeExternal.Call("my_circuit", "set_name", "Belville");
     }
 
     public static bool IsSimulated() {
@@ -25,8 +25,18 @@ public class WebSimulator : PersistentSingleton {
 
     void OnGUI() {
         if (GUILayout.Button("step")) {
-            FakeExternal.Call("my_participant", "take_step", 2);
+            Move();
         }
+    }
+
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            Move();
+        }
+    }
+
+    void Move() {
+        FakeExternal.Call("my_participant", "take_step", 2);
     }
 
 }

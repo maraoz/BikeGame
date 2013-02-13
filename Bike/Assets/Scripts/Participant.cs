@@ -28,6 +28,10 @@ public class Participant : PersistentSingleton {
         lastStepTime = 0;
     }
 
+    internal Vector3[] GetWaypoints() {
+        return waypoints;
+    }
+
     internal void StartWaypoints(int size) {
         waypoints = new Vector3[size];
     }
