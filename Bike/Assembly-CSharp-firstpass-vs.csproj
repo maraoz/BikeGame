@@ -45,16 +45,19 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Standard Assets\Water (Basic)\Sources\Scripts\WaterSimple.cs" />
+     <None Include="Assets\ZGONAssets\Shared\Shaders\ZGONBumpedDetailSpec_01.shader" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Surface.shader" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Surface_Alpha.shader" />
+     <None Include="Assets\ZGONAssets\Modern_ConcreteBuildingExt_01\readme.txt" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D Marker.shader" />
-     <None Include="Assets\TheLoom_Building_1_Free\Shaders\TheLoom_Normal.shader" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
+     <None Include="Assets\ZGONAssets\Modern_ConcreteBuildingExt_01\Modern_ConcreteBuildingExt_01.xml" />
      <None Include="Assets\EasyRoads3D Free\Shaders\surfaceAlpha.shader" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Normal-Diffuse.shader" />
      <None Include="Assets\EasyRoads3D Free\Shaders\Surface.shader" />
      <None Include="Assets\EasyRoads3D Free\_readme.txt" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Road-Edit-Mode.shader" />
+     <None Include="Assets\ZGONAssets\Shared\Shaders\ZGONShaderOps.cginc" />
  <Reference Include="EasyRoads3D">
  <HintPath>Assets\EasyRoads3D Free\lib\EasyRoads3D.dll</HintPath>
  </Reference>
