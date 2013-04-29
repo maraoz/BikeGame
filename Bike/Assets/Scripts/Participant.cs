@@ -17,6 +17,8 @@ public class Participant : PersistentSingleton {
     private int currentIndex;
     private float lastStepTime;
 
+    private float startTime;
+
 
     internal override void Awake() {
         base.Awake();
@@ -25,7 +27,7 @@ public class Participant : PersistentSingleton {
         plannedDistance = 0;
         currentHeading = transform.forward;
         currentIndex = 0;
-        lastStepTime = 0;
+        lastStepTime = 0.0001f;
     }
 
     internal Vector3[] GetWaypoints() {
@@ -33,6 +35,7 @@ public class Participant : PersistentSingleton {
     }
 
     internal void StartWaypoints(int size) {
+
         waypoints = new Vector3[size];
     }
 
@@ -91,6 +94,28 @@ public class Participant : PersistentSingleton {
                 currentIndex = 0;
             }
         }
+    }
+
+    void OnGUI() {
+        float timePlayed = (Time.time - startTime);
+        float averageSpeed = (totalMeters / timePlayed);
+        float remainingDistance = circuit.GetLength() - totalMeters;
+        float timeEndEstimative = (startTime + timePlayed + (remainingDistance) / averageSpeed);
+
+        GUILayout.Label(" ");
+        GUILayout.Label("Time start: " + startTime + "s");
+        GUILayout.Label("Time played: " + timePlayed + "s");
+        GUILayout.Label("Time end estimative: " + timeEndEstimative + "s");
+        GUILayout.Label("Total distance: " + circuit.GetLength() + " m");
+        GUILayout.Label("Average Speed: " + averageSpeed + "m/s");
+        GUILayout.Label("Covered: " + totalMeters + " m");
+        GUILayout.Label("Progress: " + (100 * totalMeters / circuit.GetLength()) + " %");
+        GUILayout.Label("Current Speed: " + speed + "m/s");
+        GUILayout.Label("Current heartrate: (shoud input)");
+        GUILayout.Label("Highest heartrate: (shoud input)");
+        GUILayout.Label("Lowest heartrate: (shoud input)");
+        GUILayout.Label("Cadence: " + "(shoud input)" + " ppm");
+
     }
 
     // draws red line from waypoint to waypoint

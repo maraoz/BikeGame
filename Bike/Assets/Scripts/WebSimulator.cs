@@ -13,9 +13,9 @@ public class WebSimulator : PersistentSingleton {
     }
 
     void Start() {
-        //FakeExternal.Call("my_circuit", "set_distance", 250);
+        FakeExternal.Call("my_circuit", "set_distance", 250);
         //FakeExternal.Call("my_circuit", "set_laps", 2);
-        FakeExternal.Call("my_circuit", "set_name", "Belville");
+        //FakeExternal.Call("my_circuit", "set_name", "Belville");
     }
 
     public static bool IsSimulated() {
