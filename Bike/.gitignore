@@ -10,7 +10,7 @@ Temp
 *.pidb
 Build
 
-Library/metadata/*
+
 Library/ScriptAssemblies/*
  
 !Library/*.asset
