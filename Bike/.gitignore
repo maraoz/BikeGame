@@ -1,16 +1,17 @@
 Temp/
-Library/
 obj/
 *.svd
 
-Library
-Library/*
+
 *.csproj
 *.sln
 *.userprefs
 Temp
 *.pidb
 Build
+
+Library/metadata/*
+Library/ScriptAssemblies/*
  
 !Library/*.asset
 !Library/AssetImportState
