@@ -13,20 +13,23 @@ obj/
 !Library/guidmapper
 !Library/unity default resources
 !Library/unity editor resources
+
+
+
+*.unityproj
+Bike*.sln
  
- 
- 
-Bike/Project.userprefs
-Bike/Assembly-CSharp.csproj
-Bike/Assembly-CSharp.pidb
-Bike/Assembly-CSharp-Editor.csproj
-Bike/Assembly-CSharp-Editor.pidb
-Bike/Assembly-CSharp-Editor-vs.csproj
-Bike/Assembly-CSharp-firstpass.csproj
-Bike/Assembly-CSharp-firstpass.pidb
-Bike/Assembly-CSharp-firstpass-vs.csproj
-Bike/Assembly-CSharp-vs.csproj
-Bike/Assembly-UnityScript-firstpass.pidb
-Bike/Assembly-UnityScript-firstpass.unityproj
-Bike/Assembly-UnityScript-firstpass-vs.unityproj
+Project.userprefs
+Assembly-CSharp.csproj
+Assembly-CSharp.pidb
+Assembly-CSharp-Editor.csproj
+Assembly-CSharp-Editor.pidb
+Assembly-CSharp-Editor-vs.csproj
+Assembly-CSharp-firstpass.csproj
+Assembly-CSharp-firstpass.pidb
+Assembly-CSharp-firstpass-vs.csproj
+Assembly-CSharp-vs.csproj
+Assembly-UnityScript-firstpass.pidb
+Assembly-UnityScript-firstpass.unityproj
+Assembly-UnityScript-firstpass-vs.unityproj
 Bike/Bike.suo
